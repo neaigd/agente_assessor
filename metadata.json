@@ -1,0 +1,6 @@
+{
+  "name": "Agente de Análise de Processos Judiciais",
+  "description": "Um aplicativo que auxilia na análise de processos judiciais e elaboração de sentenças, utilizando IA para processar documentos PDF e realizar pesquisas.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
