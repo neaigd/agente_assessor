@@ -16,10 +16,11 @@ O Agente Assessor é uma aplicação web moderna que combina o poder da IA do Go
 
 ## 🎯 Para Quem é Destinado
 
-- **Advogados** que buscam otimizar a análise de processos
+- **Advogados, Defensores, Promotores, Juizes e Servidores da Justiça** que buscam otimizar a análise de processos
 - **Escritórios de Advocacia** que desejam automatizar fluxos de trabalho
 - **Estudantes de Direito** interessados em tecnologia jurídica
 - **Desenvolvedores** que trabalham com soluções legtech
+- 
 
 ## 🛠️ Tecnologias Utilizadas
 
