@@ -1,0 +1,9 @@
+@echo off
+echo Starting Node.js backend server...
+start /B node server.js
+
+echo Waiting for backend to start...
+timeout /t 2 /nobreak >nul
+
+echo Starting Nginx...
+nginx -g "daemon off;"
