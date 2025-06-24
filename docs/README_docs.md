@@ -1,171 +1,19 @@
 # Documentação do Agente Assessor
 
-Esta pasta contém toda a documentação do projeto Agente Assessor, construída com [MkDocs Material](https://squidfunk.github.io/mkdocs-material/).
+Bem-vindo à documentação oficial do Agente Assessor. Este site contém todas as informações necessárias para entender, instalar, configurar, usar e contribuir para o projeto.
 
-## 🚀 Desenvolvimento Local
+A documentação é organizada nas seguintes seções principais:
 
-### Pré-requisitos
+-   **[Primeiros Passos e Guia do Usuário](./user-guide/getting-started.md):** Comece por aqui para aprender como usar o Agente Assessor, desde a primeira execução até a realização de análises e gerenciamento de documentos. Inclui detalhes sobre a [Interface do Usuário](./user-guide/interface.md), [Tipos de Análise](./user-guide/analysis.md) e [Geração de Documentos](./user-guide/documents.md).
 
-- Python 3.8+
-- pip
+-   **[Guias de Instalação](./installation/requirements.md):** Encontre instruções detalhadas sobre como instalar e configurar o Agente Assessor em seu ambiente, seja localmente, utilizando serviços diretos ou com Docker. Inclui informações sobre [Requisitos do Sistema](./installation/requirements.md) e a execução de [Serviços Diretos](./installation/services.md).
 
-### Instalação
+-   **[Configuração](./configuration/gemini.md):** Saiba como configurar aspectos importantes do Agente Assessor, como a integração com a [API do Google Gemini](./configuration/gemini.md) e a configuração do [Nginx](./configuration/nginx.md).
 
-```bash
-# Instalar dependências
-pip install -r requirements.txt
+-   **[Guia para Desenvolvedores](./development/architecture.md):** Se você deseja contribuir para o projeto, esta seção oferece insights sobre a [Arquitetura do Projeto](./development/architecture.md), [Estrutura de Pastas](./development/structure.md) e como [Contribuir](./development/contributing.md).
 
-# Ou instalar individualmente
-pip install mkdocs-material
-pip install mkdocs-git-revision-date-localized-plugin
-pip install mkdocs-minify-plugin
-pip install mkdocs-redirects
-```
+-   **[Referência da API](./api/endpoints.md):** Documentação técnica sobre os [Endpoints da API](./api/endpoints.md) do backend do Agente Assessor.
 
-### Executar Localmente
+-   **[Sobre o Projeto](./about/authors.md):** Informações sobre os [Autores](./about/authors.md), [Licença](./about/license.md) e [Histórico de Mudanças](./about/changelog.md).
 
-```bash
-# Servidor de desenvolvimento
-mkdocs serve
-
-# Acessar em http://localhost:8000
-```
-
-### Build para Produção
-
-```bash
-# Gerar site estático
-mkdocs build
-
-# Arquivos gerados em ./site/
-```
-
-## 📁 Estrutura da Documentação
-
-```
-docs/
-├── index.md                  # Página inicial
-├── installation/             # Guias de instalação
-│   ├── requirements.md
-│   ├── local.md
-│   ├── docker.md
-│   └── services.md
-├── user-guide/              # Manual do usuário
-│   ├── getting-started.md
-│   ├── interface.md
-│   ├── analysis.md
-│   └── documents.md
-├── configuration/           # Configurações
-│   ├── environment.md
-│   ├── gemini.md
-│   └── nginx.md
-├── api/                     # Documentação da API
-│   ├── reference.md
-│   └── endpoints.md
-├── development/             # Para desenvolvedores
-│   ├── architecture.md
-│   ├── structure.md
-│   └── contributing.md
-└── about/                   # Sobre o projeto
-    ├── license.md
-    ├── authors.md
-    └── changelog.md
-```
-
-## 🎨 Personalizações
-
-### Tema
-- **Base**: Material Design
-- **Cores**: Azul (primary) e azul (accent)
-- **Modo**: Claro/Escuro com toggle
-- **Idioma**: Português
-
-### Plugins
-- **search**: Busca em português
-- **git-revision-date-localized**: Datas de modificação
-- **minify**: Otimização dos arquivos
-- **redirects**: Redirecionamentos
-
-### Extensões Markdown
-- **admonition**: Caixas de aviso
-- **pymdownx.details**: Seções recolhíveis
-- **pymdownx.superfences**: Code blocks avançados
-- **pymdownx.highlight**: Syntax highlighting
-- **pymdownx.tabbed**: Abas
-- **attr_list**: Atributos HTML
-
-## 🚀 Deploy Automático
-
-A documentação é automaticamente implantada no GitHub Pages através do GitHub Actions quando:
-
-1. **Push na branch main** com mudanças em:
-   - `docs/**`
-   - `mkdocs.yml`
-   - `.github/workflows/docs.yml`
-
-2. **Execução manual** do workflow
-
-### Configuração no GitHub
-
-1. Acesse **Settings** → **Pages**
-2. Configure **Source**: GitHub Actions
-3. O workflow `.github/workflows/docs.yml` cuidará do resto
-
-## 📝 Contribuindo com a Documentação
-
-### Adicionando Novas Páginas
-
-1. Crie o arquivo `.md` na pasta apropriada
-2. Adicione ao `nav` em `mkdocs.yml`
-3. Use o formato estabelecido com emojis e seções
-
-### Convenções
-
-- **Emojis**: Use emojis descritivos nos títulos
-- **Seções**: Organize com `##`, `###`
-- **Links**: Use links relativos para navegação interna
-- **Código**: Use syntax highlighting apropriado
-- **Avisos**: Use admonitions para informações importantes
-
-### Exemplo de Página
-
-```markdown
-# 🎯 Título da Página
-
-Breve descrição da página.
-
-## 📋 Seção Principal
-
-Conteúdo da seção.
-
-### Subseção
-
-Mais detalhes.
-
-!!! tip "Dica"
-    Use admonitions para destacar informações importantes.
-
-```bash
-# Exemplo de código
-comando --exemplo
-```
-
-## ⏭️ Próximos Passos
-
-1. 📝 Completar páginas stub
-2. 📸 Adicionar screenshots da interface
-3. 🎥 Incluir vídeos demonstrativos
-4. 🔍 Melhorar SEO e meta tags
-5. 📊 Adicionar analytics
-
-## 🐛 Problemas Conhecidos
-
-- [ ] Algumas páginas ainda são stubs
-- [ ] Faltam screenshots da interface
-- [ ] Links para repositório precisam ser atualizados
-
-## 📞 Suporte
-
-Para questões sobre a documentação:
-- 🐛 [Issues](https://github.com/username/agente_assessor/issues)
-- 💬 [Discussions](https://github.com/username/agente_assessor/discussions)
+Esperamos que esta documentação seja útil! Se tiver alguma dúvida ou encontrar algum problema, por favor, consulte a seção de [Contribuição](./development/contributing.md) para saber como obter ajuda ou reportar issues.

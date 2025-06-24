@@ -187,3 +187,11 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](http
 ## Contribuições
 
 Contribuições são bem-vindas\! Sinta-se à vontade para enviar um Pull Request.
+
+## Próximas Funcionalidades
+
+Estamos trabalhando continuamente para melhorar o Agente Assessor. As seguintes funcionalidades estão previstas para implementação e já estão refletidas (em parte) na documentação:
+
+-   **Exportação para PDF e HTML:** Expandir as opções de exportação de documentos gerados para incluir formatos PDF e HTML, além do ODT já suportado.
+
+Fique atento às atualizações!
