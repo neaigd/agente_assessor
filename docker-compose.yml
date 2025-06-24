@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "5010:80"
+      - "88:80"
+      - "3001:3001" # Map backend server port
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    labels:
+      com.docker.compose.project: "agente-de-analise-de-processos-judiciais"
+    volumes:
+      - ./notes:/app/notes

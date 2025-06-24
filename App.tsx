@@ -23,6 +23,28 @@ const fileToBase64 = (file: File): Promise<string> => {
   });
 };
 
+const saveNote = async (taskName: string, content: string) => {
+  console.log(`Attempting to save note for task: ${taskName}`);
+  console.log(`Content snippet: ${content.substring(0, 100)}...`); // Log first 100 chars
+  try {
+    const response = await fetch('http://localhost:3001/save-note', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ taskName, content }),
+    });
+    const data = await response.json();
+    if (!response.ok) {
+      console.error('Failed to save note:', data.error);
+    } else {
+      console.log('Note saved successfully:', data.message);
+    }
+  } catch (error) {
+    console.error('Error saving note:', error);
+  }
+};
+
 const App: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [fileContentBase64, setFileContentBase64] = useState<string | null>(null);
@@ -36,6 +58,7 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
   const [currentVisibleTask, setCurrentVisibleTask] = useState<string | null>(null);
+  const [isGeneratingDocument, setIsGeneratingDocument] = useState<boolean>(false); // State to track ODT generation loading
 
   const resetState = useCallback(() => {
     setSelectedFile(null);
@@ -79,24 +102,28 @@ const App: React.FC = () => {
         setCurrentVisibleTask("Tarefa 1: Resumo do Processo");
         const result = await generateTask1Summary(fileContentBase64);
         setTask1Data(result);
+        await saveNote("Tarefa 1 - Resumo do Processo", result);
         setCurrentStage(TaskStage.TASK1_COMPLETED);
       } else if (currentStage === TaskStage.TASK1_COMPLETED && task1Data) {
         setCurrentStage(TaskStage.TASK2_PENDING);
         setCurrentVisibleTask("Tarefa 2: Relatório do Processo");
         const result = await generateTask2Report(task1Data);
         setTask2Data(result);
+        await saveNote("Tarefa 2 - Relatório do Processo", result);
         setCurrentStage(TaskStage.TASK2_COMPLETED);
       } else if (currentStage === TaskStage.TASK2_COMPLETED && task1Data) {
         setCurrentStage(TaskStage.TASK3_PENDING);
         setCurrentVisibleTask("Tarefa 3: Análise do Processo");
         const result = await generateTask3Analysis(task1Data);
         setTask3Data(result);
+        await saveNote("Tarefa 3 - Análise do Processo", result.analysis); // Save only the analysis part for Task 3
         setCurrentStage(TaskStage.TASK3_COMPLETED);
       } else if (currentStage === TaskStage.TASK3_COMPLETED && task1Data && task3Data) {
         setCurrentStage(TaskStage.TASK4_PENDING);
         setCurrentVisibleTask("Tarefa 4: Elaboração da Sentença");
         const result = await generateTask4Sentence(task1Data, task3Data.analysis);
         setTask4Data(result);
+        await saveNote("Tarefa 4 - Elaboração da Sentença", result);
         setCurrentStage(TaskStage.TASK4_COMPLETED);
       }
     } catch (e) {
@@ -112,6 +139,32 @@ const App: React.FC = () => {
       setIsLoading(false);
     }
   }, [currentStage, fileContentBase64, task1Data, task3Data]);
+
+  const handleGenerateOdt = useCallback(async () => {
+    setIsGeneratingDocument(true);
+    setError(null);
+    try {
+      const response = await fetch('http://localhost:3001/generate-odt');
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to generate ODT document.');
+      }
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'processo_analise.odt';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (e) {
+      console.error('Error generating ODT:', e);
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setIsGeneratingDocument(false);
+    }
+  }, []);
   
   useEffect(() => {
     if (currentStage === TaskStage.TASK1_COMPLETED && !currentVisibleTask) {
@@ -210,6 +263,17 @@ const App: React.FC = () => {
            {!buttonState.action && currentStage === TaskStage.INITIAL && (
              <div className="text-center text-sm text-slate-400 py-3">Carregue um arquivo PDF para habilitar as ações.</div>
            )}
+
+           {currentStage === TaskStage.TASK4_COMPLETED && (
+            <button
+              onClick={handleGenerateOdt}
+              disabled={isGeneratingDocument}
+              className="w-full flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 disabled:bg-gray-500 text-white font-semibold rounded-lg shadow-md transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75"
+            >
+               {isGeneratingDocument && <LoadingSpinner className="w-5 h-5 mr-2" />}
+              {isGeneratingDocument ? 'Gerando...' : 'Gerar Documento ODT'}
+            </button>
+          )}
 
 
           {error && (currentStage === TaskStage.ERROR || (currentStage !== TaskStage.INITIAL && currentStage !== TaskStage.FILE_READY)) && (

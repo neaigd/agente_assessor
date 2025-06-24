@@ -29,6 +29,8 @@ Respire fundo e pense passo a passo.
 `;
 
 export const TASK_01_PROMPT_TEMPLATE = `
+Sempre responda em Português Brasileiro.
+
 ${PERSONA_AND_SKILLS_PROMPT}
 
 ## TAREFA 01 - RESUMO DO PROCESSO
@@ -55,6 +57,8 @@ Com base no conteúdo do arquivo PDF fornecido (representado pelos dados a segui
 `;
 
 export const TASK_02_PROMPT_TEMPLATE = (task1Result: string): string => `
+Sempre responda em Português Brasileiro.
+
 ${PERSONA_AND_SKILLS_PROMPT}
 
 Com base no resumo do processo (TAREFA 01) fornecido abaixo:
@@ -83,6 +87,8 @@ O réu apresentou defesa (id. [NÚMERO]), alegando, em síntese, [RESUMO DAS ALE
 `;
 
 export const TASK_03_PROMPT_TEMPLATE = (task1ResultExtract: string): string => `
+Sempre responda em Português Brasileiro.
+
 ${PERSONA_AND_SKILLS_PROMPT}
 
 A seguir, um extrato da TAREFA 01 contendo as 'Questões de Direito' e 'Questões Processuais pendentes'. Se estes tópicos não estiverem presentes ou estiverem vazios no extrato, informe que não há questões a serem pesquisadas.
@@ -101,6 +107,8 @@ Formate sua resposta APENAS como um texto de análise. As URLs encontradas pela 
 
 
 export const TASK_04_PROMPT_TEMPLATE = (task1Result: string, task3Analysis: string): string => `
+Sempre responda em Português Brasileiro.
+
 ${PERSONA_AND_SKILLS_PROMPT}
 
 Considere o resumo completo do processo da TAREFA 01:
@@ -136,7 +144,7 @@ b) [DECISÃO ESPECÍFICA SOBRE CADA PEDIDO];
 Cenário                                                                                     | Texto a incluir                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | SE HOUVE PEDIDO DE TUTELA ANTECIPADA E ESTE FOI INICIALMENTE INDEFERIDO MAS JULGADO PROCEDENTE NESTA SENTENÇA | Dada a cognição exauriente ora formada, reputo presente a probabilidade do direito autoral alegado bem como o risco ao resultado útil ao processo caso tenha de se aguardar o trânsito em julgado para prestação da tutela específica ora postulada, razão pela qual, DEFIRO A TUTELA PROVISÓRIA DE NATUREZA ANTECIPATÓRIA e DETERMINO ao demandado que [DESCREVER A TUTELA ESPECIFICA] no prazo de [ESCOLHER DE 5 A 30 DIAS A DEPENDER DA COMPLEXIDADE DA OBRIGAÇÃO IMPOSTA] dias, sob pena da incidência de multa no valor de R$ [ESCOLHER DE 50 A 500 REAIS A DEPENDER DA GRAVIDADE DO DESCUMPRIMENTO] por [DIA DE DESCUMPRIMENTO OU POR DESCUMPRIMENTO], limitada à quantia de R$ [ESCOLHER DE 1.000 A 5.000 REAIS A DEPENDER DA GRAVIDADE DO DESCUMPRIMENTO]. |
-| SE HOUVE PEDIDO DE TUTELA ANTECIPADA E ESTE FOI INICIALMENTE DEFERIDO E JULGADO PROCEDENTE NESTA SENTENÇA     | Confirmo tutela antecipada concedida pela decisão (id. [NÚMERO]).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| SE HOUVE PEDIDO DE TUTELA ANTECIPADA E ESTE FOI INICIALMENTE DEFERIDO E JULGADO PROCEDENTE NESTA SENTENÇA     | Confirmo tutela antecipada concedida pela decisão (id. [NÚMERO]).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SE HOUVE PEDIDO DE TUTELA ANTECIPADA E ESTE FOI INICIALMENTE DEFERIDO MAS JULGADO IMPROCEDENTE NESTA SENTENÇA | Revogo a tutela antecipada concedida pela decisão (id. [NÚMERO]).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ##### [Para definir o ônus da sucumbência, selecione o cenário aplicável e preencha os placeholders:]
@@ -151,7 +159,7 @@ Intimem-se e cumpra-se.
 
 Petrolina/PE, data da assinatura eletrônica.
 
-Vallerie Maia Esmeraldo de Oliveira 
+[Nome do Juiz]
 Juiz de Direito
 </modelo de sentença>
 ---

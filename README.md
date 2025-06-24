@@ -2,6 +2,8 @@
 
 This contains everything you need to run your app locally.
 
+**Choose one of the following methods to run the application:**
+
 ## Run Locally
 
 **Prerequisites:**  Node.js
@@ -12,6 +14,24 @@ This contains everything you need to run your app locally.
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Run Services Directly
+
+This project's backend services (Node.js server and Nginx) can be run directly on your host machine using the `start_services.sh` script.
+
+**Prerequisites:** Node.js and Nginx installed and configured.
+
+1.  **Set environment variables:** Ensure you have the necessary environment variables set, including `GEMINI_API_KEY`. You can set these in your shell or use a `.env` file loaded by your application.
+
+2.  **Make script executable:** Give execution permissions to the startup script.
+    ```bash
+    chmod +x start_services.sh
+    ```
+
+3.  **Start the services:** Run the `start_services.sh` script. This will start the Node.js server and Nginx in the background.
+    ```bash
+    ./start_services.sh
+    ```
 
 ## Run with Docker
 
