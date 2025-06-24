@@ -13,15 +13,15 @@ theme:
   palette:
     # Esquema de cores claro
     - scheme: default
-      primary: blue
-      accent: blue
+      primary: emerald
+      accent: emerald
       toggle:
         icon: material/brightness-7
         name: Mudar para modo escuro
     # Esquema de cores escuro
     - scheme: slate
-      primary: blue
-      accent: blue
+      primary: emerald
+      accent: emerald
       toggle:
         icon: material/brightness-4
         name: Mudar para modo claro
