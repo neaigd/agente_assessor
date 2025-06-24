@@ -1,0 +1,92 @@
+site_name: Agente Assessor - Análise de Processos Judiciais
+site_description: Sistema de análise jurídica automatizada usando IA
+site_author: Luiz Peixoto de Siqueira Filho, Vallerie Maia Esmeraldo de Oliveira
+site_url: https://neaigd.github.io/agente_assessor
+
+repo_url: https://github.com/neaigd/agente_assessor
+repo_name: agente_assessor
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: pt
+  palette:
+    # Esquema de cores claro
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-7
+        name: Mudar para modo escuro
+    # Esquema de cores escuro
+    - scheme: slate
+      primary: blue
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: Mudar para modo claro
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang: pt
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+nav:
+  - Início: index.md
+  - Instalação:
+    - Requisitos: installation/requirements.md
+    - Execução Local: installation/local.md
+    - Docker: installation/docker.md
+    - Serviços Diretos: installation/services.md
+  - Guia do Usuário:
+    - Primeiros Passos: user-guide/getting-started.md
+    - Interface: user-guide/interface.md
+    - Análise de Processos: user-guide/analysis.md
+    - Geração de Documentos: user-guide/documents.md
+  - Configuração:
+    - Variáveis de Ambiente: configuration/environment.md
+    - API do Gemini: configuration/gemini.md
+    - Nginx: configuration/nginx.md
+  - API:
+    - Referência: api/reference.md
+    - Endpoints: api/endpoints.md
+  - Desenvolvimento:
+    - Arquitetura: development/architecture.md
+    - Estrutura do Projeto: development/structure.md
+    - Contribuindo: development/contributing.md
+  - Sobre:
+    - Licença: about/license.md
+    - Autores: about/authors.md
+    - Changelog: about/changelog.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/neaigd/agente_assessor
+  version:
+    provider: mike

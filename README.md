@@ -1,7 +1,23 @@
 
-# Execute e implante seu aplicativo Agente Assessor
+# Agente Assessor - Análise de Processos Judiciais
+
+[![Documentação](https://img.shields.io/badge/docs-mkdocs-blue)](https://neaigd.github.io/agente_assessor/)
+[![Licença](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![Node.js](https://img.shields.io/badge/node.js-20.x-brightgreen)](https://nodejs.org/)
+[![Docker](https://img.shields.io/badge/docker-ready-blue)](https://www.docker.com/)
 
 Este repositório contém tudo o que você precisa para executar seu aplicativo localmente.
+
+## 📖 Documentação Completa
+
+**[📚 Acesse a Documentação Oficial](https://neaigd.github.io/agente_assessor/)**
+
+A documentação completa inclui:
+- 🚀 Guias de instalação detalhados
+- 📋 Manual do usuário passo a passo
+- ⚙️ Configurações avançadas
+- 🔧 Referência da API
+- 🛠️ Guia para desenvolvedores
 
 ## Requisitos do Sistema
 

@@ -28,3 +28,7 @@ dist-ssr
 .env.local
 /notes
 
+# MkDocs
+site/
+.mkdocs_cache/
+
