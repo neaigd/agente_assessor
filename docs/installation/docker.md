@@ -59,7 +59,7 @@ O projeto inclui uma configuração Docker completa:
 └── 🧹 cleanup.sh         # Script de limpeza
 ```
 
-Para mais detalhes sobre a execução com Docker, consulte o [README principal](../../README.md#executar-com-docker).
+Para mais detalhes sobre a execução com Docker, consulte o README principal do projeto.
 
 ## ⚙️ Configurações Avançadas
 

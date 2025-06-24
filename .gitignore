@@ -32,3 +32,6 @@ dist-ssr
 site/
 .mkdocs_cache/
 
+# Python Virtual Environment
+.venv/
+
