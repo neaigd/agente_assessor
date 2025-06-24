@@ -59,3 +59,24 @@ This project can also be run using Docker containers.
     ```bash
     ./cleanup.sh
     ```
+
+## Features
+
+- **AI-Powered Legal Analysis**: Automated analysis of legal processes using Google Gemini AI
+- **Document Generation**: Automatic generation of ODT documents from analysis results
+- **Note Management**: Save and manage analysis notes for each task
+- **Responsive Interface**: Modern, responsive web interface built with React and Tailwind CSS
+- **Dockerized Deployment**: Complete containerized solution with Nginx and Node.js backend
+
+## Authors
+
+- **Luiz Peixoto de Siqueira Filho**
+- **Vallerie Maia Esmeraldo de Oliveira**
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
